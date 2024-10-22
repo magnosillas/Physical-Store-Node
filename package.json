@@ -1,0 +1,27 @@
+{
+  "name": "physical-store",
+  "version": "1.0.0",
+  "description": "Aplicação backend em TypeScript para busca de lojas físicas via CEP, utilizando a API ViaCEP e Express.",
+  "main": "src/app.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/magnosillas/Physical-Store-Node.git"
+  },
+  "author": "Mágno Sillas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/magnosillas/Physical-Store-Node/issues"
+  },
+  "homepage": "https://github.com/magnosillas/Physical-Store-Node#readme",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "axios": "^1.7.7",
+    "express": "^4.21.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3",
+    "winston": "^3.15.0"
+  }
+}
