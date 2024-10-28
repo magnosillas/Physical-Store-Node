@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import { findStoresByCep } from '../controllers/storeController';
+import { findNearbyStores } from '../controllers/storeController';
 
 const router = Router();
 
-// Define a rota usando o handler correto
-router.get('/:cep', findStoresByCep);
+router.post('/stores/nearby', findNearbyStores);
 
 export default router;
+    

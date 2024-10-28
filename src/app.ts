@@ -1,22 +1,15 @@
 import express from 'express';
 import storeRoutes from './routes/storeRoutes';
-import winston from 'winston';
+import logger from './config/winston';
 
 const app = express();
-const port = 3000;
-
-// Configuração do Logger
-const logger = winston.createLogger({
-  level: 'info',
-  format: winston.format.json(),
-  transports: [
-    new winston.transports.File({ filename: 'logfile.json' })
-  ]
-});
-
 app.use(express.json());
-app.use('/stores', storeRoutes);
 
-app.listen(port, () => {
-  logger.info(`Server is running on http://localhost:${port}`);
+app.use('/', storeRoutes);
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
+  logger.info(`Servidor iniciado na porta ${PORT}`);
 });
