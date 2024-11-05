@@ -1,0 +1,11 @@
+{"level":"error","message":"Erro ao criar loja: notNull Violation: Store.cep cannot be null","timestamp":"2024-11-05T12:19:34.251Z"}
+{"level":"error","message":"Erro ao criar loja: notNull Violation: Store.cep cannot be null","timestamp":"2024-11-05T12:19:46.526Z"}
+{"level":"error","message":"Erro ao criar loja: não existe a coluna \"contact\" da relação \"stores\"","timestamp":"2024-11-05T12:56:24.032Z"}
+{"level":"error","message":"Erro não tratado: não existe a coluna \"contact\" da relação \"stores\"","timestamp":"2024-11-05T12:56:24.035Z"}
+{"level":"error","message":"Erro ao criar loja: não existe a coluna \"contact\" da relação \"stores\"","timestamp":"2024-11-05T12:57:24.704Z"}
+{"level":"error","message":"Erro não tratado: não existe a coluna \"contact\" da relação \"stores\"","timestamp":"2024-11-05T12:57:24.705Z"}
+{"level":"error","message":"Erro ao criar loja: não existe a coluna \"contact\" da relação \"stores\"","timestamp":"2024-11-05T13:02:29.709Z"}
+{"level":"error","message":"Erro não tratado: não existe a coluna \"contact\" da relação \"stores\"","timestamp":"2024-11-05T13:02:29.711Z"}
+{"level":"error","message":"Erro ao criar loja: não existe a coluna \"contact\" da relação \"stores\"","timestamp":"2024-11-05T13:04:53.131Z"}
+{"level":"error","message":"Erro não tratado: não existe a coluna \"contact\" da relação \"stores\"","timestamp":"2024-11-05T13:04:53.132Z"}
+{"level":"error","message":"Erro ao buscar lojas por CEP: Request failed with status code 400","timestamp":"2024-11-05T13:10:43.686Z"}

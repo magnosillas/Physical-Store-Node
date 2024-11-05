@@ -1,24 +1,73 @@
-// src/models/store.ts
+import { DataTypes, Model } from 'sequelize';
+import sequelize from '../config/database';
 
-export interface Store {
-    name: string;
-    address: {
-      cep: string;
-      street: string;
-      number: string;
-      city: string;
-      state: string;
-    };
-    coordinates: {
-      latitude: number;
-      longitude: number;
-    };
+class Store extends Model {
+  public id!: number;
+  public name!: string;
+  public contact!: string; // Verifique se esta linha está presente
+  public cep!: string;
+  public street!: string;
+  public number!: string;
+  public neighborhood!: string;
+  public city!: string;
+  public state!: string;
+  public latitude!: number;
+  public longitude!: number;
+}
+
+Store.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    contact: { // Certifique-se de que esta definição está correta
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    cep: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    street: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    number: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    neighborhood: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    city: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    state: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    latitude: {
+      type: DataTypes.FLOAT,
+      allowNull: false,
+    },
+    longitude: {
+      type: DataTypes.FLOAT,
+      allowNull: false,
+    },
+  },
+  {
+    sequelize,
+    tableName: 'stores',
+    timestamps: true, // Adiciona campos de createdAt e updatedAt
   }
+);
 
-  // src/models/store.ts (continuação)
-
-export interface StoreWithDistance extends Store {
-    distance: number;
-  }
-  
-  
+export default Store;
