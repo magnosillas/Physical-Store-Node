@@ -1,11 +1,11 @@
-// src/config/database.ts
+
 import { Sequelize } from 'sequelize';
-import logger from './winston'; // Certifique-se de que o logger está configurado
+import logger from './winston'; 
 
 const sequelize = new Sequelize('physical_store', 'postgres', 'postgres', {
   host: 'localhost',
   dialect: 'postgres',
-  logging: (msg) => logger.info(msg), // Usando o logger para registrar as queries
+  logging: (msg) => logger.info(msg),
 });
 
 export default sequelize;

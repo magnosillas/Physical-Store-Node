@@ -1,5 +1,4 @@
-// src/controllers/storeController.ts
-// src/controllers/storeController.ts
+
 
 import { RequestHandler } from 'express';
 import Store from '../models/store';
@@ -23,7 +22,6 @@ export const createStore: RequestHandler = async (req, res, next) => {
       return res.status(400).json({ message: 'Nome, contato, CEP e número são obrigatórios.' });
     }
 
-    // Verificar se já existe uma loja com o mesmo CEP e número
     const existingStore = await Store.findOne({ where: { cep, number } });
     if (existingStore) {
       logger.warn(`Loja já existente com CEP ${cep} e número ${number}.`);
@@ -32,7 +30,7 @@ export const createStore: RequestHandler = async (req, res, next) => {
 
     const sanitizedCep = cep.replace(/\D/g, '');
 
-    // Obter detalhes do endereço via ViaCEP
+
     const viaCepResponse = await axios.get(`https://viacep.com.br/ws/${sanitizedCep}/json/`);
     const addressData = viaCepResponse.data;
 
@@ -43,7 +41,7 @@ export const createStore: RequestHandler = async (req, res, next) => {
 
     const { logradouro, bairro, localidade, uf } = addressData;
 
-    // Obter coordenadas via AwesomeAPI
+
     const awesomeApiResponse = await axios.get(`https://cep.awesomeapi.com.br/json/${sanitizedCep}`);
     const locationData = awesomeApiResponse.data;
 
@@ -57,7 +55,7 @@ export const createStore: RequestHandler = async (req, res, next) => {
     const latitude = parseFloat(locationData.lat);
     const longitude = parseFloat(locationData.lng);
 
-    // Criar a loja no banco de dados
+
     const store = await Store.create({
       name,
       contact,
@@ -124,15 +122,14 @@ export const updateStore: RequestHandler = async (req, res, next) => {
       return res.status(404).json({ message: 'Loja não encontrada.' });
     }
     const sanitizedCep = cep.replace(/\D/g, '');
-    // Atualizar apenas os campos fornecidos
+
     if (name) store.name = name;
     if (contact) store.contact = contact;
     if (cep) store.cep = sanitizedCep;
     if (number) store.number = number;
 
-    // Se o CEP foi atualizado, atualizar o endereço e coordenadas
     if (sanitizedCep) {
-      // Obter detalhes do endereço via ViaCEP
+
       const viaCepResponse = await axios.get(`https://viacep.com.br/ws/${sanitizedCep}/json/`);
       const addressData = viaCepResponse.data;
 
@@ -142,7 +139,7 @@ export const updateStore: RequestHandler = async (req, res, next) => {
 
       const { logradouro, bairro, localidade, uf } = addressData;
 
-      // Obter coordenadas via AwesomeAPI
+    
       const awesomeApiResponse = await axios.get(`https://cep.awesomeapi.com.br/json/${sanitizedCep}`);
       const locationData = awesomeApiResponse.data;
 
@@ -201,7 +198,7 @@ export const findNearbyStores: RequestHandler = async (req, res, next) => {
   const sanitizedCep = cep.replace(/\D/g, '');
 
   try {
-    // Obter coordenadas via AwesomeAPI
+
     const awesomeApiResponse = await axios.get(`https://cep.awesomeapi.com.br/json/${sanitizedCep}`);
     const locationData = awesomeApiResponse.data;
 

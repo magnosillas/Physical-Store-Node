@@ -4,7 +4,7 @@ import sequelize from '../config/database';
 class Store extends Model {
   public id!: number;
   public name!: string;
-  public contact!: string; // Verifique se esta linha está presente
+  public contact!: string; 
   public cep!: string;
   public street!: string;
   public number!: string;
@@ -26,7 +26,7 @@ Store.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    contact: { // Certifique-se de que esta definição está correta
+    contact: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -66,7 +66,7 @@ Store.init(
   {
     sequelize,
     tableName: 'stores',
-    timestamps: true, // Adiciona campos de createdAt e updatedAt
+    timestamps: true, 
   }
 );
 

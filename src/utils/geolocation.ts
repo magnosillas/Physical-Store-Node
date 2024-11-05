@@ -4,12 +4,12 @@ export function getDistanceFromLatLonInKm(
   lat2: number,
   lon2: number
 ): number {
-  // Verifique se todos os parâmetros são números válidos
+
   if ([lat1, lon1, lat2, lon2].some((coord) => typeof coord !== 'number' || isNaN(coord))) {
     throw new Error('Coordenadas inválidas para cálculo de distância.');
   }
 
-  const R = 6371; // Raio da Terra em km
+  const R = 6371; 
   const dLat = deg2rad(lat2 - lat1);
   const dLon = deg2rad(lon2 - lon1);
   const a =
